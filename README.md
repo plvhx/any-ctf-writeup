@@ -1,1 +1,1 @@
-# Any CTF or Wargames Writeup
+Any CTF or Wargames Writeup
