@@ -1,0 +1,2 @@
+Because strcpy() doesn't do strict length checking on 'ifile', we can easily overwrite the contents of 'ofile'
+which value is '/dev/null'. This is just a hint, the rest is do it on the server :v :v :v
