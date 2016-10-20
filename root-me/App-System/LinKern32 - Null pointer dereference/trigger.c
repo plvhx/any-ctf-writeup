@@ -13,7 +13,7 @@
 #include <sys/mman.h>
 #include <unistd.h>
 
-#define __vsys_likely(q)	__builtin_expect(!!(q), 1)
+#define __vsys_likely(q)        __builtin_expect(!!(q), 1)
 #define __vsys_unlikely(q)	__builtin_expect(!!(q), 0)
 
 int main(void) {
