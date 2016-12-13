@@ -1,0 +1,1 @@
+"$(python -c 'from struct import pack;print "\xff"*(1 << 4) + pack("<I", 0x21dd09f0)')"
