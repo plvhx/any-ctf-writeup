@@ -1,0 +1,88 @@
+vagrant@precise64:~/any-ctf-writeup/pwnable.kr/flag$ upx -d flag
+                       Ultimate Packer for eXecutables
+                          Copyright (C) 1996 - 2011
+UPX 3.08        Markus Oberhumer, Laszlo Molnar & John Reiser   Dec 12th 2011
+
+        File size         Ratio      Format      Name
+   --------------------   ------   -----------   -----------
+    887219 <-    335288   37.79%  linux/ElfAMD   flag
+
+Unpacked 1 file.
+vagrant@precise64:~/any-ctf-writeup/pwnable.kr/flag$ gdb -q flag
+Reading symbols from /home/vagrant/any-ctf-writeup/pwnable.kr/flag/flag...(no debugging symbols found)...done.
+(gdb) disas main
+Dump of assembler code for function main:
+   0x0000000000401164 <+0>:	push   %rbp
+   0x0000000000401165 <+1>:	mov    %rsp,%rbp
+   0x0000000000401168 <+4>:	sub    $0x10,%rsp
+   0x000000000040116c <+8>:	mov    $0x496658,%edi
+   0x0000000000401171 <+13>:	callq  0x402080 <puts>
+   0x0000000000401176 <+18>:	mov    $0x64,%edi
+   0x000000000040117b <+23>:	callq  0x4099d0 <malloc>
+   0x0000000000401180 <+28>:	mov    %rax,-0x8(%rbp)
+   0x0000000000401184 <+32>:	mov    0x2c0ee5(%rip),%rdx        # 0x6c2070 <flag>
+   0x000000000040118b <+39>:	mov    -0x8(%rbp),%rax
+   0x000000000040118f <+43>:	mov    %rdx,%rsi
+   0x0000000000401192 <+46>:	mov    %rax,%rdi
+   0x0000000000401195 <+49>:	callq  0x400320
+   0x000000000040119a <+54>:	mov    $0x0,%eax
+   0x000000000040119f <+59>:	leaveq
+   0x00000000004011a0 <+60>:	retq
+End of assembler dump.
+(gdb) b *main+43
+Breakpoint 1 at 0x40118f
+(gdb) r
+Starting program: /home/vagrant/any-ctf-writeup/pwnable.kr/flag/flag
+I will malloc() and strcpy the flag there. take it.
+
+Breakpoint 1, 0x000000000040118f in main ()
+(gdb) x/s 0x6c2070
+0x6c2070 <flag>:	 "(fI"
+(gdb) x/64s 0x6c2070
+0x6c2070 <flag>:	 "(fI"
+0x6c2074 <flag+4>:	 ""
+0x6c2075 <flag+5>:	 ""
+0x6c2076 <flag+6>:	 ""
+0x6c2077 <flag+7>:	 ""
+0x6c2078:	 ""
+0x6c2079:	 ""
+0x6c207a:	 ""
+0x6c207b:	 ""
+0x6c207c:	 ""
+0x6c207d:	 ""
+0x6c207e:	 ""
+0x6c207f:	 ""
+0x6c2080 <_dl_tls_static_size>:	 "\200\021"
+0x6c2083 <_dl_tls_static_size+3>:	 ""
+0x6c2084 <_dl_tls_static_size+4>:	 ""
+0x6c2085 <_dl_tls_static_size+5>:	 ""
+0x6c2086 <_dl_tls_static_size+6>:	 ""
+0x6c2087 <_dl_tls_static_size+7>:	 ""
+0x6c2088:	 ""
+0x6c2089:	 ""
+0x6c208a:	 ""
+0x6c208b:	 ""
+0x6c208c:	 ""
+0x6c208d:	 ""
+0x6c208e:	 ""
+0x6c208f:	 ""
+0x6c2090 <__exit_funcs>:	 " Dl"
+0x6c2094 <__exit_funcs+4>:	 ""
+0x6c2095 <__exit_funcs+5>:	 ""
+0x6c2096 <__exit_funcs+6>:	 ""
+0x6c2097 <__exit_funcs+7>:	 ""
+0x6c2098:	 ""
+0x6c2099:	 ""
+0x6c209a:	 ""
+0x6c209b:	 ""
+0x6c209c:	 ""
+0x6c209d:	 ""
+---Type <return> to continue, or q <return> to quit---q
+Quit
+(gdb) ir rdx
+Undefined command: "ir".  Try "help".
+(gdb) i r rdx
+rdx            0x496628	4810280
+(gdb) x/s 0x496628
+0x496628:	 "UPX...? sounds like a delivery service :)"
+(gdb)
